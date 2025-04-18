@@ -1,0 +1,42 @@
+<div style="text-align: center; font-family: 'Courier New', monospace;">
+  <h1>LEVEL 1: THE RIDDLE ROOM</h1>
+  
+  <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; border-radius: 10px;">
+    <h3>Solve this riddle to continue your quest:</h3>
+    
+    <p style="font-size: 18px; font-weight: bold;">
+      "I have keys but no locks. I have space but no room.<br>
+      You can enter, but you can't go inside. What am I?"
+    </p>
+    
+    <img src="https://i.imgur.com/JDfN1u1.jpg" alt="Hint Meme" style="max-width: 100%; height: auto; margin: 20px 0;">
+    
+    <div style="margin-top: 30px;">
+      <label for="answer">Your Answer:</label>
+      <input type="text" id="answer" style="padding: 8px; margin: 10px;">
+      <button onclick="checkAnswer()" style="padding: 8px 15px; background-color: #4285f4; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </div>
+    
+    <p id="wrongAnswer" style="color: red; display: none;">Hmm, that's not quite right. Try again!</p>
+    <div id="hiddenLink" style="display: none; margin-top: 20px;">
+      <p style="color: green;">Correct! The terminal awaits...</p>
+      <a href="/emojispeak" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #0f9d58; color: white; border: none; border-radius: 5px; cursor: pointer;">Continue to Level 2</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+function checkAnswer() {
+  var answer = document.getElementById("answer").value.toLowerCase();
+  if (answer === "keyboard") {
+    document.getElementById("hiddenLink").style.display = "block";
+  } else {
+    document.getElementById("wrongAnswer").style.display = "block";
+    setTimeout(function() {
+      document.getElementById("wrongAnswer").style.display = "none";
+    }, 2000);
+  }
+}
+</script>
