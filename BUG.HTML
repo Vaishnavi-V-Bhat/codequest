@@ -1,0 +1,72 @@
+<div style="text-align: center; font-family: 'Courier New', monospace;">
+  <h1>LEVEL 3: SPOT THE BUG</h1>
+  
+  <div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; border-radius: 10px;">
+    <h3>Find ALL the differences between these two code snippets:</h3>
+    
+    <div style="display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap;">
+      <div style="width: 48%; background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 5px; text-align: left; margin-bottom: 10px;">
+        <pre>
+function processData(array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      result.push(array[i] * 2);
+    } else {
+      result.push(array[i] + 1);
+    }
+  }
+  console.log("Processing complete!");
+  return result;
+}
+        </pre>
+      </div>
+      <div style="width: 48%; background-color: #282c34; color: #abb2bf; padding: 15px; border-radius: 5px; text-align: left; margin-bottom: 10px;">
+        <pre>
+function processData(array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {
+      result.push(array[i] / 2);
+    } else {
+      result.push(array[i] - 1);
+    }
+  }
+  console.log("Processing Tuomplate!");
+  return result;
+}
+        </pre>
+      </div>
+    </div>
+    
+    <p style="font-size: 14px; font-style: italic;">The differences contain a hidden message!</p>
+    
+    <div style="margin-top: 30px;">
+      <label for="answer">What word is hidden in the differences?</label>
+      <input type="text" id="answer" style="padding: 8px; margin: 10px;">
+      <button onclick="checkAnswer()" style="padding: 8px 15px; background-color: #4285f4; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </div>
+    
+    <p id="wrongAnswer" style="color: red; display: none;">Not all differences were found!</p>
+    <div id="hiddenLink" style="display: none; margin-top: 20px;">
+      <p style="color: green;">Bug spotted! You have a keen eye.</p>
+      <a href="/tubeclue" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #0f9d58; color: white; border: none; border-radius: 5px; cursor: pointer;">Continue to Level 4</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+function checkAnswer() {
+  var answer = document.getElementById("answer").value.toLowerCase();
+  if (answer === "tube") {
+    document.getElementById("hiddenLink").style.display = "block";
+  } else {
+    document.getElementById("wrongAnswer").style.display = "block";
+    setTimeout(function() {
+      document.getElementById("wrongAnswer").style.display = "none";
+    }, 2000);
+  }
+}
+</script>
